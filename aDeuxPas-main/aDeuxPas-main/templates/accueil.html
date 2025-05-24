@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+{% block title %}aDeuxPas - Accueil{% endblock %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aDeuxPas - Accueil</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="header-image">
+            <div class="header-content">
+                <h1>Bienvenue à aDeuxPas</h1>
+                <p>Explorez Paris et ses différents lieux à moins de 500m des stations de métro ! 🌞</p>
+            </div>
+        </div>
+    </header>
+
+    <div class = "results-container">
+            <section class="activity-cards">
+            <a href="{% url 'map_view' %}?activity=Restaurant" class="card" style="background-image: url('/static/images/restaurant.jpeg');">
+                <div class="hover-text">
+                    <p>Découvrez les Restaurants</p>
+                    <span>→</span>
+                </div>
+            </a>
+            <a href="{% url 'map_view' %}?activity=Bibliothèque" class="card" style="background-image: url('/static/images/biblio.jpeg');">
+                <div class="hover-text">
+                    <p>Découvrez les Bibliothèques</p>
+                    <span>→</span>
+                </div>
+            </a>
+            <a href="{% url 'map_view' %}?activity=Parc" class="card" style="background-image: url('/static/images/parcs.jpeg');">
+                <div class="hover-text">
+                    <p>Découvrez les Parcs</p>
+                    <span>→</span>
+                </div>
+            </a>
+            <a href="{% url 'map_view' %}?activity=Coworking"class="card" style="background-image: url('/static/images/coworking.jpeg');">
+                <div class="hover-text">
+                    <p>Découvrez les Espaces de Coworking</p>
+                    <span>→</span>
+                </div>
+            </a>
+        </section>
+    </div>
+    <footer>
+        © 2025 aDeuxPas - Tous droits réservés
+    </footer>
+</body>
+{% endblock %}
+</html>

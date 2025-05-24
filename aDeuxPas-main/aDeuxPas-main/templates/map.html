@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}aDeuxPas - Carte{% endblock %}
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>aDeuxPas - Carte</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+    <div class="left-column">
+        <div class="icons">
+            <a href="{% url 'accueil' %}" class="home-icon">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="toggle-icons">
+                <i id="icon-plus" class="fas fa-plus"></i>
+                <span id="toggle-text">Afficher les lieux</span>
+                <i id="icon-minus" class="fas fa-minus" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="dropdown-wrapper">
+            <div class="dropdown-container">
+                <select id="activity-filter">
+                    <option value="">Type d'activité</option>
+                    <option value="Restaurant" data-icon="fa-utensils">
+                        🍴 Restaurant
+                    </option>
+                    <option value="Bibliothèque" data-icon="fa-book">
+                        📚 Bibliothèque
+                    </option>
+                    <option value="Parc" data-icon="fa-tree">
+                        🌳 Parc
+                    </option>
+                    <option value="Coworking" data-icon="fa-briefcase">
+                        💼 Coworking
+                    </option>
+                </select>
+
+            </div>
+
+            <div class="dropdown-container">
+                <select id="line-filter">
+                    <option value="" selected disabled>Métro</option>
+                </select>
+            </div>
+
+            <div class="dropdown-container">
+                <select id="station-filter">
+                    <option value="">Station de métro</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="radio-container">
+            <div class="radio-title">Rayon de proximité :</div>
+            <label>
+                <input type="radio" name="proximity" value="500m"> 500m
+            </label>
+            <label>
+                <input type="radio" name="proximity" value="400m"> 400m
+            </label>
+            <label>
+                <input type="radio" name="proximity" value="300m"> 300m
+            </label>
+            <label>
+                <input type="radio" name="proximity" value="200m"> 200m
+            </label>
+            <label>
+                <input type="radio" name="proximity" value="100m"> 100m
+            </label>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <h2>Carte des activités à proximité des lignes de métro</h2>
+        <div id="map"></div>
+    </div>
+
+    <div id="lieux-container"
+         style="display: none; width: 300px; padding: 10px; border-left: 1px solid #ccc; overflow-y: auto;">
+        <h3>Lieux trouvés : 0</h3>
+        <ul id="lieux-list"></ul>
+    </div>
+
+
+    <script src="{% static 'js/map.js' %}"></script>
+
+    <footer>
+        © 2025 aDeuxPas - Tous droits réservés
+    </footer>
+    </body>
+{% endblock %}
+</html>

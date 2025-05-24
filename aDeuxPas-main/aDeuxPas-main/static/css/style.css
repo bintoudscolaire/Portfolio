@@ -1,0 +1,652 @@
+/* Style général de la page */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Style pour l'header avec l'image en fond */
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/static/images/metro.jpeg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenu du header */
+.header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 20px;
+    z-index: 2; /* Place le texte au-dessus du rectangle */
+}
+
+/* Rectangle transparent derrière le contenu */
+.header-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(50, 50, 50, 0.6);
+    border-radius: 8px;
+    z-index: 1; /* Place le rectangle derrière le texte */
+    pointer-events: none;
+}
+
+/* Titre dans le header */
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+    z-index: 2;
+    position: relative;
+}
+
+/* Description dans le header */
+header p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    z-index: 2;
+    position: relative;
+}
+
+
+/* Cartes d'activité */
+.activity-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 8px 0;
+    padding: 16px;
+}
+
+.results-container .card + .card {
+    margin-top: 4px; /* Réduit spécifiquement l'espace entre deux cartes consécutives */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover .hover-text {
+    opacity: 1;
+}
+
+.hover-text span {
+    font-size: 24px;
+    display: block;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* Page map */
+
+.dropdown-wrapper {
+    margin-top: -120px;
+}
+
+.dropdown-wrapper, .radio-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.dropdown-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.dropdown-container select {
+    appearance: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px 15px 10px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', Arial, sans-serif; /* Appliqué à la liste déroulante */
+    cursor: pointer;
+    width: 100%;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.dropdown-container select:hover, .dropdown-container select:focus {
+    border-color: #6200ea;
+    box-shadow: 0 0 6px rgba(98, 0, 234, 0.3);
+}
+
+.dropdown-container::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%236200ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.divider {
+    border-bottom: 2px dashed #ddd;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #6200ea;
+    text-align: center;
+    font-family: 'Poppins', Arial, sans-serif; /* Appliqué à la radio-title */
+}
+
+.radio-container label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: 'Poppins', Arial, sans-serif; /* Appliqué au label */
+}
+
+.radio-container input[type="radio"] {
+    margin-right: 10px;
+}
+
+.radio-container label:hover {
+    color: #6200ea;
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-size: 26px;
+    color: #444;
+    text-align: center;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: 26px;
+    color: #6eca97;
+    text-align: center;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.dropdown-container select:hover,
+.radio-container label:hover {
+    color: #6200ea;
+}
+
+/* Pied de page*/
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    z-index: 2;
+}
+
+h3 {
+    text-align: center;
+    margin: 20px 30px;
+    font-size: 24px;
+    color: #444;
+}
+
+/* Mode sombre */
+body.dark-mode {
+    /*Page map*/
+
+    .left-column {
+        background-color: rgba(50, 50, 50, 0.6);
+        color: #ffffff;
+    }
+
+    .right-column {
+        background-color: rgba(41, 36, 36, 0);
+        color: #ffffff;
+    }
+
+    h2 {
+        color: #ffffff;
+    }
+
+    .home-icon {
+        color: #ffffff;
+    }
+
+    #lieux-container {
+        background-color: rgba(50, 50, 50, 0.6);
+        color: #ffffff;
+    }
+
+    h3 {
+        color: #ffffff;
+    }
+
+    #lieux-list li {
+        color: #09090e;
+    }
+
+    #lieux-list li:hover {
+        background-color: rgba(98, 0, 234, 0.73);
+        color: #ffffff;
+        transform: scale(1.02);
+    }
+
+    .home-icon:hover {
+        color: #6200ea;
+    }
+
+    /*Général*/
+    background-color: #09090e;
+    color: #ffffff;
+}
+
+/* Bouton pour activer/désactiver le mode sombre */
+.toggle-dark-mode {
+    position: fixed;
+    top: 565px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #041b32;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.toggle-dark-mode:hover {
+    background-color: #0056b3;
+}
+
+.dark-mode-toggle {
+    margin-top: 10px;
+}
+
+#dark-mode-toggle {
+    padding: 50px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.home-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.home-icon:hover {
+    color: #6200ea;
+}
+
+/* Conteneur principal pour structurer les colonnes */
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.left-column {
+    flex: 1;
+    width: 25%;
+    padding: 10px;
+    background: #ffffff;
+    border-right: 2px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    order: 1; /* Affiché en premier */
+}
+
+.right-column {
+    flex: 2;
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f5f7;
+    height: 100vh;
+    box-sizing: border-box;
+    order: 3; /* Affiché en dernier */
+}
+
+#map {
+    flex: 1;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80vh; /* Ajuste la hauteur de la carte */
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+#lieux-container {
+    flex: 1;
+    width: 25%;
+    padding: 10px;
+    background: #f9f9f9;
+    border-right: 2px solid #e0e0e0;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    order: 2; /* Affiché en deuxième */
+}
+
+#lieux-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lieux-list li {
+    margin: 5px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#lieux-list li:hover {
+    background-color: rgba(98, 0, 234, 0.73);
+    color: #ffffff;
+    transform: scale(1.02);
+}
+
+
+.left-column .icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 180px;
+    width: 100%;
+}
+
+.left-column .toggle-icons i {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#activity-filter option {
+    display: flex;
+    align-items: center;
+}
+
+#activity-filter option[value="Restaurant"] {
+    color: #fda839;
+}
+
+#activity-filter option[value="Bibliothèque"] {
+    color: #020e93;
+}
+
+#activity-filter option[value="Parc"] {
+    color: #24fb04;
+}
+
+#activity-filter option[value="Coworking"] {
+    color: #b216f1;
+}
+
+/* Barre horizontale pour le mode sombre */
+.toggle-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 60px;
+    height: 30px;
+    background-color: #251c1c;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.toggle-button label {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.toggle-icon {
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.toggle-icon.sun {
+    left: 10px;
+    color: #f39c12;
+}
+
+.toggle-icon.moon {
+    right: 10px;
+    color: #9b59b6;
+}
+
+.toggle-ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: #b6bfca;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cacher l'input checkbox */
+#dark-mode-toggle {
+    display: none;
+}
+
+/* Activer/désactiver le mode sombre */
+#dark-mode-toggle:checked + label .toggle-ball {
+    transform: translateX(30px);
+}
+
+#dark-mode-toggle:checked + label .sun {
+    opacity: 1;
+}
+
+#dark-mode-toggle:checked + label .moon {
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 767px) {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 600vh;
+    }
+
+    header {
+        background-image: url('/static/images/metro.jpeg');
+        background-size: cover;
+        background-position: center;
+        height: 50vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header-content {
+        width: 90%;
+        max-width: 100%;
+        padding: 5%;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+
+    header h1 {
+        font-size: 8vw;
+        margin: 0;
+    }
+
+    header p {
+        font-size: 4vw;
+        margin-top: 5%;
+    }
+
+    .activity-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 5%;
+        margin-bottom: 60px ;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        min-height: 150px;
+        margin: 5% 0;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+    }
+
+    .right-column h2 {
+        display: none;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+        padding: 5%;
+        display: block;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    #lieux-container {
+        border-left: none;
+        border-right: none;
+        border-top: 2px solid #e0e0e0;
+        width: 100% !important;
+        padding: 0;
+        margin: 0;
+        display: block;
+        max-height: 300px;
+        overflow-x: hidden;
+        border-bottom: 4px solid #e0e0e0;
+    }
+
+
+    .left-column {
+        border-right: none;
+        border-bottom: 2px solid #e0e0e0;
+    }
+
+    #map {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .hover-text {
+        opacity: 1;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+    }
+
+    .card:hover .hover-text {
+        opacity: 1; /* S'assure que ça reste visible même sur hover */
+    }
+}
